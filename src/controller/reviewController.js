@@ -70,13 +70,7 @@ async function getAllReviews(req, res) {
     const AllReviews = await reviewModel
       .find({ restaurantId: restaurantId })
       .sort({ _id: -1 });
-
-    if (AllReviews.length == 0) {
-      return res
-        .status(404)
-        .send({ status: false, message: `No Review found` });
-    }
-
+      
     return res.status(200).send({ status: true, data: AllReviews });
   } catch (err) {
     return res.status(500).send({ status: false, message: err.message });
