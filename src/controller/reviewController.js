@@ -70,11 +70,11 @@ async function getAllReviews(req, res) {
     const AllReviews = await reviewModel
       .find({ restaurantId: restaurantId })
       .sort({ _id: -1 });
-      
+
     return res.status(200).send({ status: true, data: AllReviews });
   } catch (err) {
     return res.status(500).send({ status: false, message: err.message });
   }
 }
 
-module.exports = { createReview, getAllReviews };
+module.exports = { createReview , getAllReviews };
